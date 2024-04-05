@@ -74,4 +74,14 @@ public class ISBNCheckTest {
         assertFalse(result);
 
     }
+    @Test(expected = NumberFormatException.class)
+    public void checkSpaceInvalidLongISBN(){
+        //Given
+        ISBNCheck isbnCheck = new ISBNCheck();
+        //When
+        boolean result = isbnCheck.checkISBN("9780 45538370");
+        //Then
+        assertFalse(result);
+
+    }
 }

@@ -34,6 +34,9 @@ public class ISBNCheck {
     private static boolean isValid13DigitISBN(String isbn) {
         int total = 0;
         for(int i= 0; i<LONG_ISBN; i++){
+            if( Character.isWhitespace(isbn.charAt(i))){
+                throw new NumberFormatException("ISBN should be without space");
+            }
             if(i%2 == 0){
                 total += Character.getNumericValue(isbn.charAt(i));
             }else{
